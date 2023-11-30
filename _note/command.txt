@@ -1,0 +1,17 @@
+// menjalankan program
+php artisan serve
+
+// mengirim model ke database
+php artisan migrate
+
+// membuat model petugas dengan route, controller dan model
+php artisan make:model Petugas -a
+
+// membuat model petugas dengan route, controller dan model
+php artisan make:model Anggota -a
+
+// membuat model petugas dengan route, controller dan model
+php artisan make:model Peminjam -a
+
+// membuat model petugas dengan route, controller dan model
+php artisan make:model Pengembalian -a
