@@ -30,6 +30,10 @@ class StoreBukuRequest extends FormRequest
             'jumlah' => 'required|min:2',
             'kategori' => 'required|min:2',
             'tipe' => 'required|min:2',
+//            'img' => 'required|min:1',
+            'deskripsi' => 'required|min:1',
+
+
         ];
     }
 }

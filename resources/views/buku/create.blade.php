@@ -1,5 +1,6 @@
 <x-layout>
     <div class="container">
+        <a class="btn btn-secondary mb-5" href="{{ route('buku.index' )}}">Back</a>
 
         <form action="{{route('buku.store')}}" method="POST">
             @csrf()
@@ -28,16 +29,21 @@
                     </div>
                     <div class="mb-3">
                         <label for="penerbit" class="form-label">Penerbit</label>
-                        <input type="text" class="form-control" name="penerbit" value="{{old('penerbit')}}">
+                        <input type="text" class="form-control" name="penerbit" value="{{old('penerbit')}}"/>
                         @error('penerbit')<div class="alert alert-danger mt-2">{{ $message }}</div>@enderror
 
+                    </div>
+                    <div class="mb-3">
+                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                        <textarea class="form-control" name="deskripsi" >{{old('deskripsi')}}</textarea>
+                        @error('deskripsi')<div class="alert alert-danger mt-2">{{ $message }}</div>@enderror
                     </div>
                 </div>
 
                 <div class="w-50">
                     <div class="mb-3">
                         <label for="tahun" class="form-label">tahun</label>
-                        <input type="date" class="form-control" name="tahun" value="{{old('tahun')}}">
+                        <input type="date" class="form-control" name="tahun" value="{{old('tahun')}}"/>
                         @error('tahun')<div class="alert alert-danger mt-2">{{ $message }}</div>@enderror
 
                     </div>
@@ -57,7 +63,6 @@
                         <label for="tipe" class="form-label">Tipe</label>
                         <input type="text" class="form-control" name="tipe" value="{{old('tipe')}}">
                         @error('tipe')<div class="alert alert-danger mt-2">{{ $message }}</div>@enderror
-
                     </div>
                 </div>
             </div>

@@ -33,11 +33,13 @@
 
         <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasDarkNavbar"
              aria-labelledby="offcanvasDarkNavbarLabel">
+
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Perpus</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
             </div>
+
             <div class="offcanvas-body">
                 {{---------route--}}
                 <ul class="navbar-nav justify-content-end flex-grow-1 mt-5">
@@ -63,17 +65,21 @@
                 {{---------route--}}
 
             </div>
+
         </div>
 
 
+{{--        <a class="navbar-brand" href="#">Perpus</a>--}}
+
         <a class="navbar-brand" href="#">Perpus</a>
 
-        <div class="nav-item dropdown m">
+        <div class="nav-item dropdown ">
             <a class="nav-link dropdown-toggle" href="#" role="button"
                data-bs-toggle="dropdown"
                aria-expanded="false">
                 User
             </a>
+
             <ul class="dropdown-menu ">
                 <li><a class="dropdown-item" href="#">Login</a></li>
                 <li><a class="dropdown-item" href="#">Logout</a></li>
@@ -91,7 +97,6 @@
             data-bs-target="#offcanvasExample"
             aria-controls="offcanvasExample">
         <span class="navbar-toggler-icon "></span>
-
     </button>
 
 

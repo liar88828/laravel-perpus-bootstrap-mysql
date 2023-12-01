@@ -1,25 +1,22 @@
 <x-layout>
     {{--    @dd($data)--}}
     <div class="container">
-        <h1>iki buku</h1>
         @if(session()->has('message'))
             <div class="alert alert-success mt-2">{{ session('message')}}</div>
         @endif
 
         <div>
-            <a class="btn btn-primary" href="{{ route('buku.create') }}">Create buku</a>
+            <a class="btn btn-primary mb-5" href="{{ route('buku.create') }}">Create buku</a>
 
             {{--            <a class="btn btn-info" href="{{ route('buku.edit') }}">Edit Buku</a>--}}
         </div>
 
         <div>
-            <table
-                {{--                id="example"--}}
-                class="table table-striped table-hover border"
-            >
+            <table class="table table-striped table-hover border">
+{{--                <caption>New York City Marathon Results 2013</caption>--}}
                 <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col 2">#</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Pengarang</th>
@@ -32,10 +29,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($data as $d)
+                @foreach($data as $key=> $d)
 
                     <tr>
-                        <th scope="row">{{$d->index+1}}</th>
+                        <th scope="row">{{$key+1}}</th>
                         <td>{{$d->isbn}}</td>
                         <td>{{$d->judul}}</td>
                         <td>{{$d->pengarang}}</td>
@@ -51,18 +48,20 @@
                                     @csrf()
                                     <button class="btn btn-danger">Delete</button>
                                 </form>
-
-                                <a class="btn btn-info" href="{{route('buku.edit',$d->id)}}">Edit</a>
+                                <a class="btn btn-info" href="{{route('buku.show',$d->id)}}">Detail</a>
                             </div>
                         </td>
                     </tr>
                 @endforeach
 
                 </tbody>
-            </table>
-        </div>
 
+            </table>
+
+        </div>
+            {{ $data->links() }}
     </div>
+
 </x-layout>
 {{--<script> new DataTable('#example');--}}
 {{--</script>--}}

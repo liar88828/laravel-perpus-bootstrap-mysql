@@ -15,7 +15,9 @@ class BukuController extends Controller
     public function index()
     {
         Buku::all();
-        return view('buku.index', ['data' => Buku::all()]);
+        return view('buku.index',
+            ['data' => Buku::paginate(5)]
+        );
 
     }
 
@@ -36,15 +38,16 @@ class BukuController extends Controller
         Buku::create($request->validated());
         return redirect()
             ->route('buku.index')
-            ->with('message' , 'Data Berhasil Tersimpan');
+            ->with('message', 'Data Berhasil Tersimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Buku $buku)
+    public function show(string $id)
     {
-        return view('buku.detail');
+        $data = Buku::query()->findOrFail($id);
+        return view('buku.detail', ['data' => $data]);
     }
 
     /**
@@ -65,10 +68,10 @@ class BukuController extends Controller
     public function update(UpdateBukuRequest $request, string $id)
     {
         $data = Buku::query()->findOrFail($id);
-        $data->update($request->validated());
-
+        $resData = $data->update($request->validated());
+//dd($resData);
         return redirect()
-            ->route('buku.index')
+            ->route('buku.show', $data->id)
             ->with('message', 'Data Berhasil Di Ubah');
 
     }
@@ -81,6 +84,6 @@ class BukuController extends Controller
         Buku::destroy($id);
         return redirect()
             ->route('buku.index')
-            ->with('message' , 'Data Berhasil Di Hapus');
+            ->with('message', 'Data Berhasil Di Hapus');
     }
 }

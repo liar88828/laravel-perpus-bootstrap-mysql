@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->date('tahun');
             $table->integer('jumlah');
             $table->string('kategori');
+            $table->text('deskripsi');
             $table->string('tipe');
 //---
             $table->timestamps();

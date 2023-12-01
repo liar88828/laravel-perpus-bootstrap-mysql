@@ -23,12 +23,14 @@ class UpdateBukuRequest extends FormRequest
     {
         return [
             'isbn' => 'required|min:10',
-            'judul' => 'required|min:5',
+            'judul' => 'required|min:9',
             'pengarang' => 'required|min:5',
-            'penerbit' => 'required|min:4',
-            'tahun' => 'required|min:4',
-            'jumlah' => 'required|min:1',
+            'penerbit' => 'required|min:6',
+            'tahun' => 'required|date',
+            'jumlah' => 'required|numeric',
             'kategori' => 'required|min:5',
+            'img' => 'nullable',
+            'deskripsi' => 'required|min:1',
             'tipe' => 'required|min:4',
         ];
     }

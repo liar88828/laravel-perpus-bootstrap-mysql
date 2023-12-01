@@ -17,6 +17,8 @@ class Buku extends Model
         'tahun',
         'jumlah',
         'kategori',
+        'deskripsi',
+        'img',
         'tipe',
     ];
 }
