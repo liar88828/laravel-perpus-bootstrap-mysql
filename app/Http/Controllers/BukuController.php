@@ -14,9 +14,8 @@ class BukuController extends Controller
      */
     public function index()
     {
-        Buku::all();
         return view('buku.index',
-            ['data' => Buku::paginate(5)]
+            ['data' => Buku::paginate(10)]
         );
 
     }
@@ -68,8 +67,7 @@ class BukuController extends Controller
     public function update(UpdateBukuRequest $request, string $id)
     {
         $data = Buku::query()->findOrFail($id);
-        $resData = $data->update($request->validated());
-//dd($resData);
+        $data->update($request->validated());
         return redirect()
             ->route('buku.show', $data->id)
             ->with('message', 'Data Berhasil Di Ubah');

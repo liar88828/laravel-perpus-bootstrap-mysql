@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-{{--    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">--}}
+    {{--    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">--}}
 
 
     <title>Perpus</title>
@@ -44,10 +44,10 @@
                 {{---------route--}}
                 <ul class="navbar-nav justify-content-end flex-grow-1 mt-5">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Anggota</a>
+                        <a class="nav-link" href="{{route('anggota.index')}}">Anggota</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Petugas</a>
@@ -69,7 +69,7 @@
         </div>
 
 
-{{--        <a class="navbar-brand" href="#">Perpus</a>--}}
+        {{--        <a class="navbar-brand" href="#">Perpus</a>--}}
 
         <a class="navbar-brand" href="#">Perpus</a>
 

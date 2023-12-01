@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('jenis_kelamin');
             $table->string('no_tlp');
             $table->integer('denda');
+            $table->string('img');
             $table->timestamps();
             // id
 //            $table->foreignIdFor(User::class);

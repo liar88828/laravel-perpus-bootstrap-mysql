@@ -11,7 +11,7 @@ class UpdateAnggotaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,16 @@ class UpdateAnggotaRequest extends FormRequest
      */
     public function rules(): array
     {
+
         return [
-            //
+            'nama' => 'required',
+            'alamat' => 'required',
+            'jenis_kelamin' => 'required',
+            'no_tlp' => 'required',
+            'denda' => 'numeric',
+            'img' => 'nullable',
+//            'id_user'=>'nullable'
+
         ];
     }
 }

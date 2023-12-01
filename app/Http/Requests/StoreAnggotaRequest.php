@@ -11,7 +11,7 @@ class StoreAnggotaRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreAnggotaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required|min:10',
+            'alamat' => 'required|min:10|max:100',
+            'jenis_kelamin' => 'required|min:8',
+            'no_tlp' => 'required|min:11',
+            'denda' => 'numeric',
+            'img' => 'nullable',
+            'id_user'=>'nullable'
         ];
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BukuController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,11 +42,27 @@ Route::prefix('/buku')->group(function () {
     });
 });
 
-// Petugas
 
 // Anggota
+Route::prefix('/anggota')->group(function () {
+    Route::controller(AnggotaController::class)->group(function () {
+        //view
+        Route::get('/', 'index')->name('anggota.index');
+        Route::get('/detail/{id}', 'show')->name('anggota.show');
+        Route::get('/create', 'create')->name('anggota.create');
+        Route::get('/edit/{id}', 'edit')->name('anggota.edit');
+        //model
+        Route::post('/store', 'store')->name('anggota.store');
+        Route::put('/update/{id}', 'update')->name('anggota.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('anggota.destroy');
+    });
+});
+
+// Petugas
+
 
 // Pengembalian
+
 
 // Peminjaman
 
