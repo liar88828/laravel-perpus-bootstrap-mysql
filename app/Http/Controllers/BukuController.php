@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Buku;
 use App\Http\Requests\StoreBukuRequest;
 use App\Http\Requests\UpdateBukuRequest;
+use App\Models\User;
 
 class BukuController extends Controller
 {
@@ -13,7 +14,9 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        Buku::all();
+        return view('buku.index', ['data' => Buku::all()]);
+
     }
 
     /**
@@ -21,7 +24,8 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        return view('buku.create');
+
     }
 
     /**
@@ -29,7 +33,10 @@ class BukuController extends Controller
      */
     public function store(StoreBukuRequest $request)
     {
-        //
+        Buku::create($request->validated());
+        return redirect()
+            ->route('buku.index')
+            ->with('message' , 'Data Berhasil Tersimpan');
     }
 
     /**
@@ -37,30 +44,43 @@ class BukuController extends Controller
      */
     public function show(Buku $buku)
     {
-        //
+        return view('buku.detail');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Buku $buku)
+    public function edit($id)
     {
-        //
+        $data = Buku::query()->findOrFail($id);
+        return view(
+            'buku.edit',
+            ['data' => $data]);
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBukuRequest $request, Buku $buku)
+    public function update(UpdateBukuRequest $request, string $id)
     {
-        //
+        $data = Buku::query()->findOrFail($id);
+        $data->update($request->validated());
+
+        return redirect()
+            ->route('buku.index')
+            ->with('message', 'Data Berhasil Di Ubah');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Buku $buku)
+    public function destroy(string $id)
     {
-        //
+        Buku::destroy($id);
+        return redirect()
+            ->route('buku.index')
+            ->with('message' , 'Data Berhasil Di Hapus');
     }
 }

@@ -11,7 +11,7 @@ class StoreBukuRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreBukuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'isbn' => 'required|min:2',
+            'judul' => 'required|min:2',
+            'pengarang' => 'required|min:2',
+            'penerbit' => 'required|min:2',
+            'tahun' => 'required|min:2',
+            'jumlah' => 'required|min:2',
+            'kategori' => 'required|min:2',
+            'tipe' => 'required|min:2',
         ];
     }
 }

@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('bukus', function (Blueprint $table) {
             $table->id();
-            $table->string('ISBN');
+            $table->string('isbn');
             $table->string('judul');
-            $table->string('pegarang');
+            $table->string('pengarang');
             $table->string('penerbit');
             $table->date('tahun');
             $table->integer('jumlah');
