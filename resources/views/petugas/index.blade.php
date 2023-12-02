@@ -1,14 +1,8 @@
 <x-layout>
-{{--        @dd($datas)--}}
     <div class="container">
-{{--        @if(session()->has('message'))--}}
-{{--            <div class="alert alert-success mt-2">{{ session('message')}}</div>--}}
-{{--        @endif--}}
-
         <div>
-            <a class="btn btn-primary mb-5" href="{{ route('anggota.create') }}">Create anggota</a>
+            <a class="btn btn-primary mb-5" href="{{ route('petugas.create') }}">Create Petugas</a>
 
-            {{--            <a class="btn btn-info" href="{{ route('anggota.edit') }}">Edit Buku</a>--}}
         </div>
 
         <div>
@@ -35,15 +29,14 @@
                         <td>{{$d->jenis_kelamin}}</td>
                         <td>{{$d->email}}</td>
                         <td class="text-nowrap">@formattedNumber($d->no_tlp)</td>
-                        <td class="text-nowrap">@convertToRupiah($d->denda)</td>
                         <td>
                             <div>
-                                <form action="{{route('anggota.destroy',$d->id)}}" method="post">
+                                <form action="{{route('petugas.destroy',$d->id)}}" method="post">
                                     @method('DELETE')
                                     @csrf()
                                     <button class="btn btn-danger">Delete</button>
                                 </form>
-                                <a class="btn btn-info" href="{{route('anggota.show',$d->id)}}">Detail</a>
+                                <a class="btn btn-info" href="{{route('petugas.show',$d->id)}}">Detail</a>
                             </div>
                         </td>
                     </tr>

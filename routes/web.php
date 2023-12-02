@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PetugasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,19 @@ Route::prefix('/anggota')->group(function () {
 });
 
 // Petugas
+Route::prefix('/petugas')->group(function () {
+    Route::controller(PetugasController::class)->group(function () {
+        //view
+        Route::get('/', 'index')->name('petugas.index');
+        Route::get('/detail/{id}', 'show')->name('petugas.show');
+        Route::get('/create', 'create')->name('petugas.create');
+        Route::get('/edit/{id}', 'edit')->name('petugas.edit');
+        //model
+        Route::post('/store', 'store')->name('petugas.store');
+        Route::put('/update/{id}', 'update')->name('petugas.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('petugas.destroy');
+    });
+});
 
 
 // Pengembalian

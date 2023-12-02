@@ -50,7 +50,7 @@
                         <a class="nav-link" href="{{route('anggota.index')}}">Anggota</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Petugas</a>
+                        <a class="nav-link" href="{{route('petugas.index')}}">Petugas</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="{{ route('buku.index') }}">Buku</a>
