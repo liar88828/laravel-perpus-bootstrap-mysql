@@ -20,6 +20,15 @@ class BukuController extends Controller
 
     }
 
+    public function list()
+    {
+        return view('buku.list',
+            ['data' => Buku::paginate(10)]
+        );
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */

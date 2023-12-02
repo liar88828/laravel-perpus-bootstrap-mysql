@@ -3,6 +3,8 @@
     <div class="container">
 
             <a class="btn btn-primary" href="{{ route('buku.index') }}">Back</a>
+{{--        --}}
+            <a class="btn btn-primary" href="{{ route('buku.list') }}">Back</a>
         <div class="row">
 
             <div class="col-lg-12 mb-4 mb-sm-5">
@@ -20,6 +22,10 @@
                                     {{--                                        <span class="text-primary">Coach</span>--}}
                                 </div>
                                 <ul class="list-unstyled mb-1-9">
+                                    <li class="mb-2 mb-xl-3 display-28">
+                                        <span class="display-26 text-secondary me-2 font-weight-600">SIBN:</span>
+                                        {{$data->isbn}}
+                                    </li>
                                     <li class="mb-2 mb-xl-3 display-28">
                                         <span class="display-26 text-secondary me-2 font-weight-600">Pengarang:</span>
                                         {{$data->pengarang}}

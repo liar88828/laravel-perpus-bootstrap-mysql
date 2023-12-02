@@ -33,6 +33,7 @@ Route::prefix('/buku')->group(function () {
     Route::controller(BukuController::class)->group(function () {
         //view
         Route::get('/', 'index')->name('buku.index');
+        Route::get('/list', 'list')->name('buku.list');
         Route::get('/detail/{id}', 'show')->name('buku.show');
         Route::get('/create', 'create')->name('buku.create');
         Route::get('/edit/{id}', 'edit')->name('buku.edit');
@@ -74,9 +75,9 @@ Route::prefix('/petugas')->group(function () {
     });
 });
 
+// Peminjaman
+
+
 
 // Pengembalian
-
-
-// Peminjaman
 

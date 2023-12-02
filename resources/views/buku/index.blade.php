@@ -16,7 +16,7 @@
 {{--                <caption>New York City Marathon Results 2013</caption>--}}
                 <thead>
                 <tr>
-                    <th scope="col 2">#</th>
+                    <th scope="col">#</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Pengarang</th>
