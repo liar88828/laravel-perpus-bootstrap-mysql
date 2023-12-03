@@ -1,8 +1,13 @@
 <?php
 
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\PeminjamController;
+use App\Http\Controllers\PengembalianController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\TransaksiBukuController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +30,12 @@ Route::get('/greeting', fn() => 'hello');
 
 //apa bila route pada page tidak di isi maka tidak akan tampil
 // Auth
-Route::get('/register', fn() => view('auth.register'))->name('register');
-Route::get('/login', fn() => view('auth.login'))->name('login');
+//Route::controller(AuthController::class)->group(function () {
+//    Route::get('/login', '' )->name('login');
+////Route::get('/profile' )->name('login');
+//    Route::get('/register', )->name('register');
+////Route::delete('/logout', fn() =>  )->name('login');
+//});
 
 // Buku
 Route::prefix('/buku')->group(function () {
@@ -75,9 +84,58 @@ Route::prefix('/petugas')->group(function () {
     });
 });
 
-// Peminjaman
 
+// Peminjaman
+Route::prefix('/peminjam')->group(function () {
+    Route::controller(PeminjamController::class)->group(function () {
+        //view
+        Route::get('/', 'index')->name('peminjam.index');
+        Route::get('/detail/{id}', 'show')->name('peminjam.show');
+        Route::get('/create', 'create')->name('peminjam.create');
+        Route::get('/edit/{id}', 'edit')->name('peminjam.edit');
+        //model
+        Route::post('/store', 'store')->name('peminjam.store');
+        Route::put('/update/{id}', 'update')->name('peminjam.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('peminjam.destroy');
+    });
+});
 
 
 // Pengembalian
+Route::prefix('/pengembalian')->group(function () {
+    Route::controller(PengembalianController::class)->group(function () {
+        //view
+        Route::get('/', 'index')->name('pengembalian.index');
+        Route::get('/detail/{id}', 'show')->name('pengembalian.show');
+        Route::get('/create', 'create')->name('pengembalian.create');
+        Route::get('/edit/{id}', 'edit')->name('pengembalian.edit');
+        //model
+        Route::post('/store', 'store')->name('pengembalian.store');
+        Route::put('/update/{id}', 'update')->name('pengembalian.update');
+        Route::delete('/destroy/{id}', 'destroy')->name('pengembalian.destroy');
+    });
+});
 
+
+//Transaksi Buku
+Route::prefix('/transaksi')->group(function () {
+    Route::controller(TransaksiBukuController::class)->group(function () {
+//    View
+        Route::get('/daftar_pinjam', 'DaftarPinjam')->name('daftar-pinjam');
+        Route::get('/sedang_pinjam', 'SedangPinjam')->name('sedang-pinjam');
+        Route::get('/selesai_pinjam', 'SelesaiPinjam')->name('selesai-pinjam');
+        Route::get('/detail_selesai/{id}', 'DetailSelesai')->name('detail-selesai');
+        Route::get('/daftar_denda', 'DaftarDenda')->name('daftar-denda');
+        //
+//    DataBase
+        Route::post('/daftar/{id}', 'Daftar')->name('daftar-id');
+        Route::post('/terima/{id}', 'Terima')->name('terima-id');
+        Route::post('/selesai/{id}', 'Selesai')->name('selesai-id');
+
+        Route::post('/kembali', 'Kembali')->name('kembali-id');
+//
+        Route::delete('/batal/{id}', 'Batal')->name('batal-id');
+//
+
+    });
+});

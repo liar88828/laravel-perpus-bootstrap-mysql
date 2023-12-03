@@ -15,6 +15,7 @@ return new class extends Migration {
     {
         Schema::create('peminjams', function (Blueprint $table) {
             $table->id();
+            $table->string('status');
             $table->date('tgl_pinjam');
             $table->timestamps();
             // realational

@@ -18,7 +18,8 @@ return new class extends Migration {
             $table->id();
             $table->date('tgl_kembali');
             $table->decimal('denda');
-            $table->timestamps();
+            $table->text('keterangan');
+//            $table->timestamps();
             // relational
 //            $table->foreignIdFor(Anggota::class,'id_anggota')->unique()->constrained();
 //            $table->foreignIdFor(Petugas::class,'id_petugas')->unique()->constrained();
@@ -35,8 +36,8 @@ return new class extends Migration {
 //            $table->foreignIdFor(Buku::class, 'id_buku');
 //            $table->foreignIdFor(Peminjam::class, 'id_pinjam');
 //
-            $table->foreignId('id_buku')->references('id')->on('bukus');
             $table->foreignId('id_pinjam')->references('id')->on('peminjams');
+            $table->foreignId('id_buku')->references('id')->on('bukus');
             $table->foreignId('id_petugas')->references('id')->on('petugas');
             $table->foreignId('id_anggota')->references('id')->on('anggotas');
 //            //

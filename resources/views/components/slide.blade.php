@@ -33,11 +33,14 @@
                 <a class="nav-link " href="{{ route('buku.list') }}">List</a>
             </li>
 
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" href="{{ route('peminjam.index') }}">Peminjam</a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link" href="{{ route('pengembalian.index') }}">Pengembalian</a>--}}
+{{--            </li>--}}
             <li class="nav-item">
-                <a class="nav-link" href="#">Peminjam</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pengembalian</a>
+                <a class="nav-link" href="{{ route('daftar-pinjam') }}">Transaksi</a>
             </li>
         </ul>
         {{---------route--}}
