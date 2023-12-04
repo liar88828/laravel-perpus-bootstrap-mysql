@@ -15,30 +15,37 @@
     <div class="offcanvas-body">
         {{---------route--}}
         <ul class="navbar-nav justify-content-end flex-grow-1 mt-5">
+
             <li class="nav-item">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('anggota.index')}}">Anggota</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{route('petugas.index')}}">Petugas</a>
-            </li>
 
-            <li class="nav-item ">
-                <a class="nav-link " href="{{ route('buku.index') }}">Buku</a>
-            </li>
+            @if(auth()->user())
+                @if( auth()->user()->role==='petugas' )
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('anggota.index')}}">Anggota</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('petugas.index')}}">Petugas</a>
+                    </li>
+
+                    <li class="nav-item ">
+                        <a class="nav-link " href="{{ route('buku.index') }}">Buku</a>
+                    </li>
+                @endif
+            @endif
 
             <li class="nav-item ">
                 <a class="nav-link " href="{{ route('buku.list') }}">List</a>
             </li>
 
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="{{ route('peminjam.index') }}">Peminjam</a>--}}
-{{--            </li>--}}
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" href="{{ route('pengembalian.index') }}">Pengembalian</a>--}}
-{{--            </li>--}}
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link" href="{{ route('peminjam.index') }}">Peminjam</a>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item">--}}
+            {{--                <a class="nav-link" href="{{ route('pengembalian.index') }}">Pengembalian</a>--}}
+            {{--            </li>--}}
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('daftar-pinjam') }}">Transaksi</a>
             </li>

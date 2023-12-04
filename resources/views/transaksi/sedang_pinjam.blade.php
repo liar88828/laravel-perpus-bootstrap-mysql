@@ -13,7 +13,11 @@
                 <th scope="col text-capitalize">buku</th>
                 <th scope="col text-capitalize">tanggal pinjam</th>
                 <th scope="col text-capitalize">jumlah</th>
-                <th scope="col text-capitalize">Aksi</th>
+                @if(Auth::check())
+                    @if( auth()->user()->role==='petugas' )
+                        <th scope="col text-capitalize">Aksi</th>
+                    @endif
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -29,19 +33,21 @@
                     <td>{{$d->nama_buku}}</td>
                     <td>{{$d->tgl_pinjam}}</td>
                     <td>{{$d->jumlah}}</td>
-                    <td>
-                        <div>
-                            <form action="{{route('selesai-id',$d->id)}}" method="post">
-                                @csrf()
-                                <button class="btn btn-info">Selesai</button>
-                            </form>
+                    @if( auth()->user()->role==='petugas' )
+                        <td>
+                            <div>
+                                <form action="{{route('selesai-id',$d->id)}}" method="post">
+                                    @csrf()
+                                    <button class="btn btn-info">Selesai</button>
+                                </form>
 
-                            <form action="{{route('daftar-id',$d->id)}}" method="post">
-                                @csrf()
-                                <button class="btn btn-danger">batal</button>
-                            </form>
-                        </div>
-                    </td>
+                                <form action="{{route('daftar-id',$d->id)}}" method="post">
+                                    @csrf()
+                                    <button class="btn btn-danger">batal</button>
+                                </form>
+                            </div>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
 

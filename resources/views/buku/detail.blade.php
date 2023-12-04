@@ -1,10 +1,14 @@
 <x-layout>
 
     <div class="container">
+        {{--        Kembali     --}}
+        <a class="btn btn-secondary " href="{{ route('buku.list') }}">Back</a>
 
-            <a class="btn btn-primary" href="{{ route('buku.index') }}">Back</a>
-{{--        --}}
-            <a class="btn btn-primary" href="{{ route('buku.list') }}">Back</a>
+        @if( auth()->user()->role==='petugas' )
+            <a class="btn btn-danger" href="{{ route('buku.index') }}">Back Petugas</a>
+        @endif
+        {{--      end kembali              --}}
+
         <div class="row">
 
             <div class="col-lg-12 mb-4 mb-sm-5">
@@ -52,10 +56,14 @@
                                         {{$data->tipe}}
                                     </li>
                                     <li class="mb-2 mb-xl-3  display-28">
-                                        {{--  edit   edit  edit                     edit --}}
-                                        <a class="btn btn-primary" href="{{route('buku.edit',$data->id)}}">Edit</a>
-                                        <a class="btn btn-info">Download</a>
-{{--                                        <a class="btn btn-success"></a>--}}
+                                        {{--  edit                     edit --}}
+                                        @if( auth()->user()->role==='petugas' )
+                                            <a class="btn btn-danger" href="{{route('buku.edit',$data->id)}}">Edit</a>
+                                        @endif
+
+                                        <a class="btn btn-primary">Download</a>
+                                        <a class="btn btn-info">Pinjam</a>
+                                        {{--                                        <a class="btn btn-success"></a>--}}
 
                                     </li>
                                 </ul>

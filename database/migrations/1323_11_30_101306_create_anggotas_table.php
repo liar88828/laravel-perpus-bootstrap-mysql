@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('jenis_kelamin');
             $table->string('no_tlp');
-            $table->integer('denda');
-            $table->string('img');
+            $table->integer('denda')->default(0);
+            $table->string('img')->default('https://img.freepik.com/premium-vector/anonymous-user-circle-icon-vector-illustration-flat-style-with-long-shadow_520826-1931.jpg');
             $table->timestamps();
             // id
 //            $table->foreignIdFor(User::class);

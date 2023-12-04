@@ -9,7 +9,6 @@
 
             <div class="d-flex gap-3">
                 <div class="w-50">
-
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
                         <input type="text" class="form-control" name="nama" value="{{old('nama')}}">
@@ -34,7 +33,6 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>@enderror
 
                     </div>
-
 
                 </div>
 

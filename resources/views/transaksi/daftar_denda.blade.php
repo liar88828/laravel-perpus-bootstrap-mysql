@@ -12,7 +12,9 @@
                 <th scope="col text-capitalize">buku</th>
                 <th scope="col text-capitalize">tanggal kembali</th>
                 <th scope="col text-capitalize">petugas</th>
+                @if( auth()->user()->role==='petugas' )
                 <th scope="col text-capitalize">Aksi</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -27,6 +29,7 @@
                     <td>{{$d->judul}}</td>
                     <td>{{$d->tgl_kembali}}</td>
                     <td>{{$d->nama_petugas}}</td>
+                    @if( auth()->user()->role==='petugas' )
                     <td>
                         <div>
                             <a href="{{ route('detail-selesai',$d->id) }}" class="btn btn-info">Detail</a>
@@ -37,6 +40,7 @@
                             </form>
                         </div>
                     </td>
+                    @endif
                 </tr>
             @endforeach
 

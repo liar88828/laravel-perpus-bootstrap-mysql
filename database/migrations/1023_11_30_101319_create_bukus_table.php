@@ -17,10 +17,11 @@ return new class extends Migration {
             $table->string('pengarang');
             $table->string('penerbit');
             $table->date('tahun');
-            $table->integer('jumlah');
+            $table->integer('jumlah')->default(0);
             $table->string('kategori');
-            $table->text('deskripsi');
+            $table->text('deskripsi')->default('-');
             $table->string('tipe');
+            $table->string('img')->default('https://islandpress.org/sites/default/files/default_book_cover_2015.jpg');
 //---
             $table->timestamps();
         });

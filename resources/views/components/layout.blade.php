@@ -16,9 +16,16 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     {{--    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">--}}
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet" />
 
+    <title>
+        {{-- @dd(Auth::check())--}}
+        Welcome {{Auth::check() ? 'Guest':'Perpus'}}
 
-    <title>Perpus</title>
+    </title>
 </head>
 
 <body class="mb-48">
@@ -30,7 +37,7 @@
         <x-slide/>
         {{-- end        slide bar--}}
 
-        <a class="navbar-brand" href="#">Perpus</a>
+        <a class="navbar-brand" href="#"> Welcome {{Auth::check() ? auth()->user()->name:'Perpus'}}</a>
 
         <x-auth/>
 
